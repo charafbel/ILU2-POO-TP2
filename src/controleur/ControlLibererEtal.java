@@ -26,12 +26,21 @@ public class ControlLibererEtal {
 	 */
 	public String[] libererEtal(String nomVendeur) {
 		Etal etalVendeur = controlTrouverEtalVendeur.trouverEtalVendeur(nomVendeur);
-		if (etalVendeur== null) {
-			return null;
+		int nul = 0;
+		if (etalVendeur == null) {
+			nul = 1;
 		} else {
 			String[] donneesEtal = etalVendeur.etatEtal();
+			etalVendeur.libererEtal();
+			if (nul == 1) {
+				donneesEtal[0] = "false";
+			} else {
+				donneesEtal[0] = "true";
+			}
 			return donneesEtal;
+
 		}
+		return null;
 	}
 
 }

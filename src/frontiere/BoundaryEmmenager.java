@@ -54,7 +54,7 @@ public class BoundaryEmmenager {
 			if (effetPotionMax < effetPotionMin) {
 				System.out.println("Attention druide vous avez confondu MIN et MAX");
 			}
-		} while (effetPotionMin < effetPotionMax);
-		controlEmmenager.ajouterDruide(nomVisiteur, forceDruide, effetPotionMax, effetPotionMin);
+		} while (effetPotionMin > effetPotionMax);
+		controlEmmenager.ajouterDruide(nomVisiteur, forceDruide, effetPotionMin, effetPotionMax);
 	}
 }
