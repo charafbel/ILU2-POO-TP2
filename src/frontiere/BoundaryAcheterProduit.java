@@ -78,10 +78,10 @@ public class BoundaryAcheterProduit {
 										"achète tout le stock " + nomVendeur);
 						// Clavier.entrerEntier(quantite);
 						// Même remarque possibilité de boucle.
-						controlAcheterProduit.acheterProduit(Vendeur, quantiteVendeur);
+						controlAcheterProduit.acheterProduit(nomVendeur, quantiteVendeur);
 					} else {
 						System.out.println(nomAcheteur + " achète " + quantite + " " + produit + " à " + nomVendeur);
-						controlAcheterProduit.acheterProduit(Vendeur, Integer.valueOf(quantite));
+						controlAcheterProduit.acheterProduit(nomVendeur, Integer.valueOf(quantite));
 					}
 					break;
 				case "2":

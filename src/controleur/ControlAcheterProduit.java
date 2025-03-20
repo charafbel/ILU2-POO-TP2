@@ -30,14 +30,15 @@ public class ControlAcheterProduit {
 		return village.rechercherEtal(vendeur);
 	}
 
-	public boolean acheterProduit(Gaulois vendeur, int quantite){
+	public Integer acheterProduit(String nomVendeur, int quantite){
+		Gaulois vendeur = village.trouverHabitant(nomVendeur);
 		Etal etal = village.rechercherEtal(vendeur);
 		if (quantite > etal.getQuantite()){
-			return false;
+			return etal.getQuantite();
 		} else {
 			etal.acheterProduit(quantite);
 		}
-		return true;
+		return quantite;
 	}
 
 	public String[] donnerEtatMarche(){
