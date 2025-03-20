@@ -26,7 +26,8 @@ public class ControlAcheterProduit {
 		return village.rechercherVendeursProduit(produit);
 	}
 
-	public Etal rechercherEtal(Gaulois vendeur) {
+	public Etal rechercherEtal(String nomVendeur){
+		Gaulois vendeur = village.trouverHabitant(nomVendeur);
 		return village.rechercherEtal(vendeur);
 	}
 
