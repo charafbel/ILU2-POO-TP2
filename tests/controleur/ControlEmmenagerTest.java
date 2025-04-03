@@ -1,5 +1,6 @@
 package controleur;
 
+import personnages.Chef;
 import personnages.Druide;
 import personnages.Gaulois;
 import villagegaulois.Village;
@@ -16,13 +17,13 @@ class ControlEmmenagerTest {
     @BeforeEach
     void setUp() {
         village = new Village("Village des irréductibles", 10, 5);
+        village.setChef(new Chef("Karim", 1, village));
         controlEmmenager = new ControlEmmenager(village);
     }
 
     @Test
     void isHabitant() {
         assertFalse(controlEmmenager.isHabitant("Panoramix"));
-
         controlEmmenager.ajouterGaulois("Astérix", 6);
         assertTrue(controlEmmenager.isHabitant("Astérix"));
     }
@@ -30,18 +31,13 @@ class ControlEmmenagerTest {
     @Test
     void ajouterDruide() {
         controlEmmenager.ajouterDruide("Panoramix", 5, 1, 3);
-
-        // Vérifie que le druide est bien ajouté
         assertTrue(controlEmmenager.isHabitant("Panoramix"));
-
-        // Vérifie que c'est bien un Druide
         assertTrue(village.trouverHabitant("Panoramix") instanceof Druide);
     }
 
     @Test
-    void ajouterGaulois() {
+    void ajouterGaulois(){
         controlEmmenager.ajouterGaulois("Obélix", 10);
-
         assertTrue(controlEmmenager.isHabitant("Obélix"));
         assertTrue(village.trouverHabitant("Obélix") instanceof Gaulois);
     }
